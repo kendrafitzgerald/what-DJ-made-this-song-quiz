@@ -28,3 +28,13 @@ body {
 .question {
     display:none;
 }
+
+.userchoice {
+    display: none;
+}
+
+.time {
+    color: indigo;
+    font-size: 30px;
+    text-align:right;
+}
