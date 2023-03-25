@@ -1,0 +1,30 @@
+body {
+    font-family: monospace;
+}
+
+.title{
+    margin-top: 100px;
+    text-align: center;
+    color: indigo;
+    font-size: 48px;
+}
+
+.quizdescription {
+    text-align: center;
+    margin: 0 250px 0 250px;
+}
+
+.startbutton {
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 575px;
+    margin-right: 400px;
+    box-sizing: 100px;
+    font-size: 48px;
+    background-color: indigo;
+    color: white;
+}
+
+.question {
+    display:none;
+}
