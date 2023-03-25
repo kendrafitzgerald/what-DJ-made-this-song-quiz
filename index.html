@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
+    <!-- The below div holds the main page's elements. It includes an h1 with the class "title" that displays the name
+    of the quiz. It also contains an h2 that includes the description of the quiz with basic rules.-->
 <div>
  <h1 class="title">What DJ Made This Song Quiz</h1>
  <h2 class="quizdescription">The following quiz will test your knowledge on famous house and techno
@@ -15,17 +17,24 @@
     will be determined by how many seconds you have left when you finish the quiz. However, when
     you answer a question wrong, time will be deducted from the timer--and your score! Good luck!
  </h2>
+ <!-- This button class is the start button with the text "Start Quiz" -->
  <button class="startbutton">Start Quiz</button>
 </div>
-<div>
-    <ol class="question">
-        <button class="answerbutton">
-        <li class="answer"></li>
-        <li class="answer"></li>
-        <li class="answer"></li>
-        <li class="answer"></li>
-    </button>
-    </ol>
+<!-- This div will hold the questions displayed as seen in my javascript file. -->
+<div class="question"></div>
+
+<!-- This div will hold all of the answers I must display. -->
+<div class="answers">
+
+    <!-- Each button element signifies a choice the user will have to answer the question correctly. -->
+    <button class="userchoice"></button>
+    <button class="userchoice"></button>
+    <button class="userchoice"></button>
+    <button class="userchoice"></button>
+
+
+    
+    
 </div>
 
 <script src="script.js"></script>
