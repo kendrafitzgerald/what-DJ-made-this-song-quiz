@@ -44,7 +44,13 @@ body {
     color: white;
     padding: 5px;
 }
+.rightanswer {
+    display: none;
+}
 
+.wronganswer {
+    display: none;
+}
 .time {
     color: indigo;
     font-size: 30px;

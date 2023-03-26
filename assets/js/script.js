@@ -4,7 +4,7 @@ var questionSet = [
 
 {
     questions: "Which DJ made the song 'Selected'? ",
-    wrongAnswers: ["Boris Brejcha", "Chris Lake", "Michael Bibi"],
+    allAnswers: ["Boris Brejcha", "Chris Lake", "Charlotte de Witte", "Michael Bibi"],
     correctAnswer: "Charlotte de Witte"
 
 
@@ -12,24 +12,24 @@ var questionSet = [
 
 {
     questions: "Which DJ made the song 'Different Side'? ",
-    wrongAnswers: ["Chris Lorenzo", "Solomun", "John Summit"],
+    allAnswers: ["Chris Lorenzo","Michael Bibi", "Solomun", "John Summit"],
     correctAnswer: "Michael Bibi"
 
 },
 
 {
     questions: "Which DJ made the song 'Redemption'? ",
-    wrongAnswers: ["KAS:ST", "Paul Kalkbrenner", "Eric Prydz"],
+    allAnswers: ["KAS:ST", "Paul Kalkbrenner", "Eric Prydz", "Boris Brejcha"],
     correctAnswer: "Boris Brejcha"
 },
 {
     questions: "Which DJ made the song 'Inward Visions'? ",
-    wrongAnswers: ["CamelPhat", "PAWSA", "Xinobi"],
+    allAnswers: ["BLOND:ISH","CamelPhat", "PAWSA", "Xinobi"],
     correctAnswer: "BLOND:ISH"
 },
 {
     questions: "Which DJ made the song 'Salzburg'? ",
-    wrongAnswers: ["Dax J", "Green Velvet", "Odd Mob"],
+    allAnswers: ["Dax J", "Worakls", "Green Velvet", "Odd Mob"],
     correctAnswer: "Worakls"
 }
 ]
@@ -38,13 +38,15 @@ var startQuiz = document.querySelector(".startbutton");
 var timer= document.querySelector(".time");
 var firstPage =document.querySelector(".starterpage")
 var carousel = document.querySelector(".carousel");
-var userChoice = carousel.querySelector(".userchoice");
+var userChoice = document.querySelector(".userchoice");
 var quizPage = document.querySelector(".quiz");
 var question = document.querySelector(".question");
 var optionOne= document.querySelector("#optionOne");
 var optionTwo=document.querySelector("#optionTwo");
 var optionThree=document.querySelector("#optionThree");
 var optionFour=document.querySelector("#optionFour");
+var rightAnswerText=document.querySelector(".rightanswer");
+var wrongAnswerText=document.querySelector(".wronganswer");
 var index = 0
 
 function quiz() {
@@ -54,15 +56,17 @@ firstPage.setAttribute("style", "display: none;");
 quizPage.setAttribute("style", "display:block;");
 
 for ( var i = 0; i < questionSet.length; i++) {
-question.textContent= questionSet[i].questions;
-optionOne.textContent= questionSet[i].wrongAnswers[0];
-optionTwo.textContent=questionSet[i].wrongAnswers[1];
-optionThree.textContent=questionSet[i].wrongAnswers[2];
-optionFour.textContent=questionSet[i].correctAnswer; 
+
+question.textContent= questionSet[index].questions;
+optionOne.textContent= questionSet[index].allAnswers[0];
+optionTwo.textContent=questionSet[index].allAnswers[1];
+optionThree.textContent=questionSet[index].allAnswers[2];
+optionFour.textContent=questionSet[index].allAnswers[3]; 
 }
 
 
 }
+
 //The below function creates the timer element of my site. It counts down from 75s and at 0s,
 //the function will stop. 
 function countdown(){
@@ -81,5 +85,4 @@ function countdown(){
 }
 
 // The below event listener will make the timer start when the button is clicked
-startQuiz.addEventListener("click", countdown)
-userChoice.addEventListener("click", quiz)
+startQuiz.addEventListener("click", countdown);
