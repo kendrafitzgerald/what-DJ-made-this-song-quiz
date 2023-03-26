@@ -1,5 +1,6 @@
 body {
     font-family: monospace;
+    background-color: lightblue;
 }
 
 .title{
@@ -11,7 +12,9 @@ body {
 
 .quizdescription {
     text-align: center;
+    color: indigo;
     margin: 0 250px 0 250px;
+    border: 5px solid white;
 }
 
 .startbutton {
@@ -20,9 +23,15 @@ body {
     margin-left: 575px;
     margin-right: 400px;
     box-sizing: 100px;
+    border-radius: 30px;
     font-size: 48px;
     background-color: indigo;
     color: white;
+}
+.startbutton:hover, .userchoice:hover {
+    background-color: white;
+    color: indigo;
+    cursor: grab;
 }
 
 .quiz {
@@ -30,7 +39,8 @@ body {
     text-align: center;
 }
 .question {
-    color: black;
+    text-decoration: underline white;
+    color: indigo;
     font-size: 35px;
 
 }
@@ -39,6 +49,7 @@ body {
     margin-left: 350px;
     margin-top: 10px;
     box-sizing: 50px;
+    border-radius: 15px;
     background-color: indigo;
     font-size: 20px;
     color: white;

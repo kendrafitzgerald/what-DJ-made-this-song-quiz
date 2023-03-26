@@ -38,7 +38,6 @@ var startQuiz = document.querySelector(".startbutton");
 var timer= document.querySelector(".time");
 var firstPage =document.querySelector(".starterpage")
 var carousel = document.querySelector(".carousel");
-var userChoice = document.querySelector(".userchoice");
 var quizPage = document.querySelector(".quiz");
 var question = document.querySelector(".question");
 var optionOne= document.querySelector("#optionOne");
@@ -47,6 +46,7 @@ var optionThree=document.querySelector("#optionThree");
 var optionFour=document.querySelector("#optionFour");
 var rightAnswerText=document.querySelector(".rightanswer");
 var wrongAnswerText=document.querySelector(".wronganswer");
+var userChoice= document.querySelector(".userchoice");
 var index = 0
 
 function quiz() {
@@ -62,10 +62,26 @@ optionOne.textContent= questionSet[index].allAnswers[0];
 optionTwo.textContent=questionSet[index].allAnswers[1];
 optionThree.textContent=questionSet[index].allAnswers[2];
 optionFour.textContent=questionSet[index].allAnswers[3]; 
-}
-
 
 }
+}
+
+function buttonNavigation() {
+
+    if (correctAnswer) {
+        rightAnswerText.textContent= "Congrats! You got it right!";
+        rightAnswerText.setAttribute("style", "display: block;");
+        index++;
+    
+    
+        
+    } else {
+        wrongAnswerText.textContent="Oops! You got it wrong!";
+        wrongAnswerText.setAttribute("style", "display:block;");
+        timeLeft= -10;
+}
+}
+
 
 //The below function creates the timer element of my site. It counts down from 75s and at 0s,
 //the function will stop. 
