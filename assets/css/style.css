@@ -25,12 +25,24 @@ body {
     color: white;
 }
 
-.question {
-    display:none;
-}
-
-.userchoice {
+.quiz {
     display: none;
+    text-align: center;
+}
+.question {
+    color: black;
+    font-size: 35px;
+
+}
+.userchoice {
+    display: block;
+    margin-left: 350px;
+    margin-top: 10px;
+    box-sizing: 50px;
+    background-color: indigo;
+    font-size: 20px;
+    color: white;
+    padding: 5px;
 }
 
 .time {
