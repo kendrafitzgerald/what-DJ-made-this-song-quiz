@@ -47,6 +47,8 @@ var optionFour=document.querySelector("#optionFour");
 var rightAnswerText=document.querySelector(".rightanswer");
 var wrongAnswerText=document.querySelector(".wronganswer");
 var userChoice= document.querySelector(".userchoice");
+var quizOver= document.querySelector(".quiz-over");
+var score = document.querySelector(".score");
 var index = 0
 
 function quiz() {
@@ -62,8 +64,8 @@ optionOne.textContent= questionSet[index].allAnswers[0];
 optionTwo.textContent=questionSet[index].allAnswers[1];
 optionThree.textContent=questionSet[index].allAnswers[2];
 optionFour.textContent=questionSet[index].allAnswers[3]; 
-
 }
+
 }
 
 function buttonNavigation() {
@@ -83,6 +85,17 @@ function buttonNavigation() {
 }
 
 
+function submitPage () {
+    quizPage.setAttribute("style", "display: none;");
+    quizOver.setAttribute("style", "display:block;");
+    score.textContent= "Your Score: " + timeLeft;
+    score.setAttribute("style", "font-size: 30px;", "color: indigo;", "text-align: center;")
+
+
+
+}
+
+
 //The below function creates the timer element of my site. It counts down from 75s and at 0s,
 //the function will stop. 
 function countdown(){
@@ -90,15 +103,16 @@ function countdown(){
     var timerInterval = setInterval (function() {
     timeLeft --;
     timer.textContent = timeLeft;
-
     if(timeLeft === 0) {
         clearInterval(timerInterval);
+        submitPage();
     }
 
     }, 1000);
     quiz();
 
 }
+
 
 // The below event listener will make the timer start when the button is clicked
 startQuiz.addEventListener("click", countdown);

@@ -62,6 +62,29 @@ body {
 .wronganswer {
     display: none;
 }
+
+.quiz-over {
+    display:none;
+
+}
+.last-page-header {
+    text-align: center;
+    font-size: 48px;
+    color: indigo;
+
+}
+
+
+.input {
+    text-align: center;
+    box-sizing: 100px;
+}
+
+.submit-initials {
+    text-align: center;
+    font-size: 30px;
+    
+}
 .time {
     color: indigo;
     font-size: 30px;
