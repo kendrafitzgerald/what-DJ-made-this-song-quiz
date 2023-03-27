@@ -52,9 +52,12 @@ var quizOver= document.querySelector(".quiz-over");
 var score = document.querySelector(".score");
 var submitButton = document.querySelector(".submit-score")
 var highScorePage = document.querySelector(".scoreboard");
+var initials= document.querySelector(".submit-initials")
 var index = 0
 var timerInterval 
 var timeLeft = 75;
+var finalScoreBoard = [];
+var scoreListEl = document.querySelector(".score-list");
 
 // The function below begins when the "Start Quiz" button is clicked. It then makes my starter page dissappear, and each quiz page with questions
 //and answers begins to appear instead. The for loop iterates through each question/answer set. It provides the text content of each value in 
@@ -126,21 +129,43 @@ function submitPage () {
     quizOver.setAttribute("style", "display:block;");
     score.textContent= "Your score: " + timeLeft;
     score.setAttribute("style", "font-size: 30px;", "color: indigo;", "text-align: center;");
-    
-    submitButton.addEventListener("click", highScores); 
+
+    submitButton.addEventListener("click", highScores);
 
     }
 
     //This function is the event that the Submit Button on the quizOver page will trigger. 
     //It will lead the user to the last page of the quiz app where their high scores and initials will be stored using local storage.
 
+        
+        
 function highScores(event) {
     event.preventDefault();
-    if (event.target) {
         quizOver.setAttribute("style", "display: none;");
         highScorePage.setAttribute("style", "display: block;");
 
-    };
+        var scoreBoard = {
+            initials: initials.value,
+            score: timeLeft,
+        };
+
+    for (var i =0; i < finalScoreBoard.length; i++) {
+        var li = document.createElement("li");
+        li = finalScoreBoard[i];
+        li.textContent = "User: " + scoreBoard[i].initials + "Score: " + scoreBoard[i].score
+        li.setAttribute("data-index", i);
+        scoreListEl.appendChild(li)
+
+    }
+
+
+    localStorage.setItem("storedScores", JSON.stringify(storedScores));
+    var storedScores = JSON.parse(localStorage.getItem(finalScoreBoard))
+    if (storedScores !== null) {
+        finalScoreBoard = storedScores;
+    }
+    finalScoreBoard.push(scoreBoard)
+
   
 }
 
