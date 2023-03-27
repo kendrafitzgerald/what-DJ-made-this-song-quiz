@@ -33,6 +33,7 @@ var questionSet = [
     correctAnswer: "Worakls"
 }
 ]
+
 //The below variables select elements of my html document to be dynamically used in my js. 
 var startQuiz = document.querySelector(".startbutton");
 var timer= document.querySelector(".time");
@@ -44,12 +45,20 @@ var optionOne= document.querySelector("#optionOne");
 var optionTwo=document.querySelector("#optionTwo");
 var optionThree=document.querySelector("#optionThree");
 var optionFour=document.querySelector("#optionFour");
-var rightAnswerText=document.querySelector(".rightanswer");
-var wrongAnswerText=document.querySelector(".wronganswer");
+var rightAnswerText=document.querySelector(".right-answer");
+var wrongAnswerText=document.querySelector(".wrong-answer");
 var userChoice= document.querySelector(".userchoice");
 var quizOver= document.querySelector(".quiz-over");
 var score = document.querySelector(".score");
+var sumbitButton = document.querySelector(".submit-score")
+var highScorePage = document.querySelector(".scoreboard");
 var index = 0
+
+// The function below begins when the "Start Quiz" button is clicked. It then makes my starter page dissappear, and each quiz page with questions
+//and answers begins to appear instead. The for loop iterates through each question/answer set. It provides the text content of each value in 
+//my array to the webpage by looping through the index of each question and answer option in my questionSet. 
+
+// The event listeners present in this function call the buttonNavigation function when any answer option is clicked. 
 
 function quiz() {
 
@@ -59,53 +68,85 @@ quizPage.setAttribute("style", "display:block;");
 
 for ( var i = 0; i < questionSet.length; i++) {
 
-question.textContent= questionSet[index].questions;
+question.textContent= questionSet[index].questions; // Console says that properties are undefined 
 optionOne.textContent= questionSet[index].allAnswers[0];
 optionTwo.textContent=questionSet[index].allAnswers[1];
 optionThree.textContent=questionSet[index].allAnswers[2];
 optionFour.textContent=questionSet[index].allAnswers[3]; 
 }
-
+optionOne.addEventListener("click", buttonNavigation);
+optionTwo.addEventListener("click", buttonNavigation);
+optionThree.addEventListener("click", buttonNavigation);
+optionFour.addEventListener("click", buttonNavigation);
 }
 
-function buttonNavigation() {
+// The following function indicates the event that will occur when an answer is chosen by the user.
+// If the event target, or button that is clicked, is equal to the correct answer option of that array, then 
+// text will appear on the page telling the user they got their answer right. If the event target is not 
+//the correct answer value, then the text content will notify the user that they got the answer wrong.
+function buttonNavigation(event) {
 
-    if (correctAnswer) {
+    if (event.target === questionSet[index].correctAnswer) {
         rightAnswerText.textContent= "Congrats! You got it right!";
         rightAnswerText.setAttribute("style", "display: block;");
-        index++;
-    
+
+    // BUG Correct text does not show up when triggered by the event, console says that 'correct answer' is undefined
     
         
     } else {
         wrongAnswerText.textContent="Oops! You got it wrong!";
-        wrongAnswerText.setAttribute("style", "display:block;");
-        timeLeft= -10;
-}
+        wrongAnswerText.setAttribute("style", "display: block;");
+        //timeLeft= timeLeft - 10? BUG
+    }
+       index++;
+       quiz();
 }
 
+
+// The below function occurs when the timer hits 0 or when the for loop is done iterating, as seen in the countdown function.
+//When these conditions are satisfied, the last quizPage will disappear, as well as any additional text on the page. In it's place,
+//the quiz over page will be on the webpage. There is a place for individuals to submit their initials, and their high score will be logged
+// on the next page upon clicking the sumbit button.
 
 function submitPage () {
+
     quizPage.setAttribute("style", "display: none;");
+    rightAnswerText.setAttribute("style", "display: none;");
+    wrongAnswerText.setAttribute("style", "display: none;");
+
     quizOver.setAttribute("style", "display:block;");
-    score.textContent= "Your Score: " + timeLeft;
-    score.setAttribute("style", "font-size: 30px;", "color: indigo;", "text-align: center;")
+    score.textContent= "Your score: " + //timeLeft; BUG
+    score.setAttribute("style", "font-size: 30px;", "color: indigo;", "text-align: center;");
 
+    //sumbitButton.addEventListener("click", highScores); unsure of where to place--have tried options and it will flash 
+    //high score screen very briefly then go to start page
 
+    }
 
+    //This function is the event that the Submit Button on the quizOver page will trigger. 
+    //It will lead the user to the last page of the quiz app where their high scores and initials will be stored using local storage.
+
+function highScores(event) {
+
+    if (event.target) {
+        quizOver.setAttribute("style", "display: none;");
+        highScorePage.setAttribute("style", "display: block;");
+
+    };
 }
 
 
-//The below function creates the timer element of my site. It counts down from 75s and at 0s,
+
+//The below function creates the timer element of my site. It counts down from 75s and at 0s or when the for loop is done iterating,
 //the function will stop. 
 function countdown(){
     var timeLeft = 75;
     var timerInterval = setInterval (function() {
     timeLeft --;
     timer.textContent = timeLeft;
-    if(timeLeft === 0) {
+    if(timeLeft === 0 || index === questionSet.length) {
         clearInterval(timerInterval);
-        submitPage();
+        submitPage()
     }
 
     }, 1000);
@@ -115,4 +156,4 @@ function countdown(){
 
 
 // The below event listener will make the timer start when the button is clicked
-startQuiz.addEventListener("click", countdown);
+startQuiz.addEventListener("click", countdown)

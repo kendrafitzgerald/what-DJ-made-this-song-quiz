@@ -55,14 +55,12 @@ body {
     color: white;
     padding: 5px;
 }
-.rightanswer {
+.right-answer {
     display: none;
 }
-
-.wronganswer {
+.wrong-answer {
     display: none;
 }
-
 .quiz-over {
     display:none;
 
@@ -84,6 +82,22 @@ body {
     text-align: center;
     font-size: 30px;
     
+}
+.submit-score {
+    text-align: center;
+    margin-top: 30px;
+    margin-left: 550px;
+    margin-right: 550px;
+    box-sizing: 50px;
+    border-radius: 20px;
+    font-size: 30px;
+    background-color: indigo;
+    color: white;
+
+
+}
+.scoreboard {
+    display: none;
 }
 .time {
     color: indigo;
