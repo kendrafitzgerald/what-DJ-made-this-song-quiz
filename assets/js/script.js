@@ -53,6 +53,8 @@ var score = document.querySelector(".score");
 var sumbitButton = document.querySelector(".submit-score")
 var highScorePage = document.querySelector(".scoreboard");
 var index = 0
+var timerInterval 
+var timeLeft = 75;
 
 // The function below begins when the "Start Quiz" button is clicked. It then makes my starter page dissappear, and each quiz page with questions
 //and answers begins to appear instead. The for loop iterates through each question/answer set. It provides the text content of each value in 
@@ -68,11 +70,12 @@ quizPage.setAttribute("style", "display:block;");
 
 for ( var i = 0; i < questionSet.length; i++) {
 
-question.textContent= questionSet[index].questions; // Console says that properties are undefined 
+question.textContent= questionSet[index].questions;
 optionOne.textContent= questionSet[index].allAnswers[0];
 optionTwo.textContent=questionSet[index].allAnswers[1];
 optionThree.textContent=questionSet[index].allAnswers[2];
 optionFour.textContent=questionSet[index].allAnswers[3]; 
+
 }
 optionOne.addEventListener("click", buttonNavigation);
 optionTwo.addEventListener("click", buttonNavigation);
@@ -86,20 +89,24 @@ optionFour.addEventListener("click", buttonNavigation);
 //the correct answer value, then the text content will notify the user that they got the answer wrong.
 function buttonNavigation(event) {
 
-    if (event.target === questionSet[index].correctAnswer) {
+    if (event.target.textContent === questionSet[index].correctAnswer) {
         rightAnswerText.textContent= "Congrats! You got it right!";
         rightAnswerText.setAttribute("style", "display: block;");
-
-    // BUG Correct text does not show up when triggered by the event, console says that 'correct answer' is undefined
+        wrongAnswerText.setAttribute("style", "display:none;");
     
         
     } else {
         wrongAnswerText.textContent="Oops! You got it wrong!";
         wrongAnswerText.setAttribute("style", "display: block;");
-        //timeLeft= timeLeft - 10? BUG
+        rightAnswerText.setAttribute("style", "display: none;");
+        timeLeft -= 10;
     }
-       index++;
-       quiz();
+    index++
+    if (index===questionSet.length) {
+        submitPage();
+        return;
+    }
+    quiz();
 }
 
 
@@ -109,13 +116,15 @@ function buttonNavigation(event) {
 // on the next page upon clicking the sumbit button.
 
 function submitPage () {
+    clearInterval(timerInterval);
+    timeLeft;
 
     quizPage.setAttribute("style", "display: none;");
     rightAnswerText.setAttribute("style", "display: none;");
     wrongAnswerText.setAttribute("style", "display: none;");
 
     quizOver.setAttribute("style", "display:block;");
-    score.textContent= "Your score: " + //timeLeft; BUG
+    score.textContent= "Your score: " + timeLeft;
     score.setAttribute("style", "font-size: 30px;", "color: indigo;", "text-align: center;");
 
     //sumbitButton.addEventListener("click", highScores); unsure of where to place--have tried options and it will flash 
@@ -140,11 +149,10 @@ function highScores(event) {
 //The below function creates the timer element of my site. It counts down from 75s and at 0s or when the for loop is done iterating,
 //the function will stop. 
 function countdown(){
-    var timeLeft = 75;
-    var timerInterval = setInterval (function() {
+    timerInterval = setInterval (function() {
     timeLeft --;
     timer.textContent = timeLeft;
-    if(timeLeft === 0 || index === questionSet.length) {
+    if(timeLeft === 0) {
         clearInterval(timerInterval);
         submitPage()
     }
