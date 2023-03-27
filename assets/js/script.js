@@ -50,7 +50,7 @@ var wrongAnswerText=document.querySelector(".wrong-answer");
 var userChoice= document.querySelector(".userchoice");
 var quizOver= document.querySelector(".quiz-over");
 var score = document.querySelector(".score");
-var sumbitButton = document.querySelector(".submit-score")
+var submitButton = document.querySelector(".submit-score")
 var highScorePage = document.querySelector(".scoreboard");
 var index = 0
 var timerInterval 
@@ -126,9 +126,8 @@ function submitPage () {
     quizOver.setAttribute("style", "display:block;");
     score.textContent= "Your score: " + timeLeft;
     score.setAttribute("style", "font-size: 30px;", "color: indigo;", "text-align: center;");
-
-    //sumbitButton.addEventListener("click", highScores); unsure of where to place--have tried options and it will flash 
-    //high score screen very briefly then go to start page
+    
+    submitButton.addEventListener("click", highScores); 
 
     }
 
@@ -136,12 +135,13 @@ function submitPage () {
     //It will lead the user to the last page of the quiz app where their high scores and initials will be stored using local storage.
 
 function highScores(event) {
-
+    event.preventDefault();
     if (event.target) {
         quizOver.setAttribute("style", "display: none;");
         highScorePage.setAttribute("style", "display: block;");
 
     };
+  
 }
 
 
