@@ -159,7 +159,14 @@ function highScores(event) {
 
     }
     localStorage.setItem("scoreBoard", JSON.stringify(scoreBoard));
+
+    var storedScores=JSON.parse(localStorage.getItem(scoreBoard))
+    if (storedScores !== null) {
+        scoreBoard=storedScores;
+    }
+    storedScores.push(scoreBoard)
 }
+
 
 
 
@@ -179,13 +186,5 @@ function countdown(){
 
 }
 
-function init() {
-    var storedScores=JSON.parse(localStorage.getItem(scoreBoard))
-    if (storedScores !== null) {
-        scoreBoard=storedScores;
-    }
-    storedScores.push(scoreBoard)
-    countdown();
-}
 // The below event listener will make the timer start when the button is clicked
 startQuiz.addEventListener("click", countdown)
