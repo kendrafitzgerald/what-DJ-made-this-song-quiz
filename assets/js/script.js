@@ -58,7 +58,7 @@ var clearScoreboard = document.querySelector(".clear-scoreboard");
 var index = 0
 var timerInterval 
 var timeLeft = 75;
-//var finalScoreBoard = [];
+var storedScores = [];
 var scoreListEl = document.querySelector(".score-list");
 
 // The function below begins when the "Start Quiz" button is clicked. It then makes my starter page dissappear, and each quiz page with questions
@@ -131,7 +131,7 @@ function submitPage () {
 
     quizOver.setAttribute("style", "display:block;");
     score.textContent= "Your score: " + timeLeft;
-    score.setAttribute("style", "font-size: 30px;", "color: indigo;", "text-align: center;");
+    score.setAttribute("style", "font-size: 30px; color: indigo; text-align: center;");
 
     submitButton.addEventListener("click", highScores);
 
@@ -141,7 +141,7 @@ function submitPage () {
     //It will lead the user to the last page of the quiz app where their high scores and initials will be stored using local storage.
 
         
-        
+      
 function highScores(event) {
     event.preventDefault();
         quizOver.setAttribute("style", "display: none;");
@@ -154,26 +154,26 @@ function highScores(event) {
             initials: initials.value.trim(),
             score: timeLeft,
         };
-    
 
-    for (var i =0; i < scoreBoard.length; i++) {
+        var storedScores=JSON.parse(localStorage.getItem("scoreBoard"))
+        if (storedScores === null) {
+            storedScores= [];
+        }
+        storedScores.push(scoreBoard)
+
+        localStorage.setItem("scoreBoard", JSON.stringify(storedScores));
+    
+//storedScores is a globally declared   empty array
+    for (var i =0; i < storedScores.length; i++) {
         var li = document.createElement("li");
-        li = scoreBoard[i];
-        li.textContent = "User: " + scoreBoard[i].initials + "Score: " + scoreBoard[i].score
+        li.textContent = "User: " + storedScores[i].initials + " Score: " + storedScores[i].score
         li.setAttribute("data-index", i);
+        li.setAttribute("style", "font-size: 25px; color: indigo; text-align: center; list-style-type: none;")
         scoreListEl.appendChild(li)
 
     }
-    localStorage.setItem("scoreBoard", JSON.stringify(scoreBoard));
 
-    var storedScores=JSON.parse(localStorage.getItem(scoreBoard))
-    if (storedScores !== null) {
-        scoreBoard=storedScores;
-    }
-    storedScores.push(scoreBoard)
 }
-
-
 //The below function creates the timer element of my site. It counts down from 75s and at 0s or when the for loop is done iterating,
 //the function will stop. 
 function countdown(){
