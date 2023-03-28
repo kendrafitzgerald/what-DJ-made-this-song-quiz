@@ -31,7 +31,23 @@ var questionSet = [
     questions: "Which DJ made the song 'Salzburg'? ",
     allAnswers: ["Dax J", "Worakls", "Green Velvet", "Odd Mob"],
     correctAnswer: "Worakls"
+},
+{
+    questions: "Which DJ made the song 'The First Time'? ",
+    allAnswers: ["KAS:ST", "NTO", "Fred Again..", "Loods"],
+    correctAnswer: "KAS:ST"
+},
+{
+    questions: "Which DJ made the song 'Searching For'? ",
+    allAnswers: ["Daniel Steinberg", "Enrico Sangiuliano", "Xinobi", "Amelie Lens"],
+    correctAnswer: "Xinobi"
+},
+{
+    questions: "Which DJ made the song 'Symbiosis'? ",
+    allAnswers: ["Creeds", "Mau P", "Chris Lake", "Enrico Sangiuliano"],
+    correctAnswer: "Enrico Sangiuliano"
 }
+
 ]
 
 //The below variables select elements of my html document to be dynamically used in my js. 
