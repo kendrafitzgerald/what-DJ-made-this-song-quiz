@@ -144,10 +144,12 @@ function highScores(event) {
         quizOver.setAttribute("style", "display: none;");
         highScorePage.setAttribute("style", "display: block;");
 
-        var scoreBoard = {
-            initials: initials.value,
+        var scoreBoard = { 
+            initials: initials.value.trim(),
             score: timeLeft,
         };
+
+    var storedScores=JSON.parse(localStorage.getItem(finalScoreBoard))
 
     for (var i =0; i < finalScoreBoard.length; i++) {
         var li = document.createElement("li");
@@ -157,15 +159,10 @@ function highScores(event) {
         scoreListEl.appendChild(li)
 
     }
-
-
-    localStorage.setItem("storedScores", JSON.stringify(storedScores));
-    var storedScores = JSON.parse(localStorage.getItem(finalScoreBoard))
     if (storedScores !== null) {
-        finalScoreBoard = storedScores;
+        finalScoreboard=storedScores;
     }
-    finalScoreBoard.push(scoreBoard)
-
+    localStorage.setItem("finalScoreboard", JSON.stringify(finalScoreBoard));
   
 }
 
