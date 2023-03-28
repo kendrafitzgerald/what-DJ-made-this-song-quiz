@@ -58,7 +58,7 @@ var clearScoreboard = document.querySelector(".clear-scoreboard");
 var index = 0
 var timerInterval 
 var timeLeft = 75;
-var finalScoreBoard = [];
+//var finalScoreBoard = [];
 var scoreListEl = document.querySelector(".score-list");
 
 // The function below begins when the "Start Quiz" button is clicked. It then makes my starter page dissappear, and each quiz page with questions
@@ -91,7 +91,8 @@ optionFour.addEventListener("click", buttonNavigation);
 // The following function indicates the event that will occur when an answer is chosen by the user.
 // If the event target, or button that is clicked, is equal to the correct answer option of that array, then 
 // text will appear on the page telling the user they got their answer right. If the event target is not 
-//the correct answer value, then the text content will notify the user that they got the answer wrong.
+//the correct answer value, then the text content will notify the user that they got the answer wrong. For
+//each wrong answer, 10 seconds will be deducted from timeLeft.
 function buttonNavigation(event) {
 
     if (event.target.textContent === questionSet[index].correctAnswer) {
@@ -122,7 +123,7 @@ function buttonNavigation(event) {
 
 function submitPage () {
     clearInterval(timerInterval);
-    timeLeft;
+    timeLeft=== timeLeft;
 
     quizPage.setAttribute("style", "display: none;");
     rightAnswerText.setAttribute("style", "display: none;");
@@ -148,7 +149,7 @@ function highScores(event) {
         // clearScoreboard.addEventListener(clear local storage)
         //takeAgain.addEventListener("click");
 
-
+//local storage?
         var scoreBoard = { 
             initials: initials.value.trim(),
             score: timeLeft,
