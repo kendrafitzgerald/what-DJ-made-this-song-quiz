@@ -53,6 +53,8 @@ var score = document.querySelector(".score");
 var submitButton = document.querySelector(".submit-score")
 var highScorePage = document.querySelector(".scoreboard");
 var initials= document.querySelector(".submit-initials")
+var takeAgain = document.querySelector(".take-again");
+var clearScoreboard = document.querySelector(".clear-scoreboard");
 var index = 0
 var timerInterval 
 var timeLeft = 75;
@@ -143,6 +145,9 @@ function highScores(event) {
     event.preventDefault();
         quizOver.setAttribute("style", "display: none;");
         highScorePage.setAttribute("style", "display: block;");
+        // clearScoreboard.addEventListener(clear local storage)
+        //takeAgain.addEventListener("click");
+
 
         var scoreBoard = { 
             initials: initials.value.trim(),
@@ -166,8 +171,6 @@ function highScores(event) {
     }
     storedScores.push(scoreBoard)
 }
-
-
 
 
 //The below function creates the timer element of my site. It counts down from 75s and at 0s or when the for loop is done iterating,

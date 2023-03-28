@@ -2,7 +2,18 @@ body {
     font-family: monospace;
     background-color: lightblue;
 }
-
+.starterpage {
+    margin-left: 340px;
+    margin-top: 50px;
+    text-align: center;
+    padding: 5px;
+    border: 5px solid thistle;
+    width: 775px;
+    height: 500px;
+    border-radius: 100%;
+    background-color: thistle;
+    box-shadow: 10px 10px 5px lightgrey;
+}
 .title{
     margin-top: 100px;
     text-align: center;
@@ -11,24 +22,20 @@ body {
 }
 
 .quizdescription {
-    text-align: center;
     color: indigo;
-    margin: 0 250px 0 250px;
-    border: 5px solid white;
 }
 
 .startbutton {
     text-align: center;
     margin-top: 30px;
-    margin-left: 575px;
-    margin-right: 400px;
     box-sizing: 100px;
     border-radius: 30px;
     font-size: 48px;
     background-color: indigo;
     color: white;
 }
-.startbutton:hover, .userchoice:hover {
+.startbutton:hover, .userchoice:hover, .submit-score:hover, 
+.take-again:hover, .clear-scoreboard:hover {
     background-color: white;
     color: indigo;
     cursor: grab;
@@ -37,32 +44,59 @@ body {
 .quiz {
     display: none;
     text-align: center;
+    margin-left: 340px;
+    margin-top: 50px;
+    padding: 5px;
+    border: 5px solid thistle;
+    width: 775px;
+    height: 500px;
+    border-radius: 100%;
+    background-color: thistle;
+    box-shadow: 10px 10px 5px lightgrey;
 }
 .question {
     text-decoration: underline white;
+    margin-top: 150px;
     color: indigo;
     font-size: 35px;
 
 }
 .userchoice {
     display: block;
-    margin-left: 350px;
-    margin-top: 10px;
+    margin-left: 300px;
     box-sizing: 50px;
     border-radius: 15px;
     background-color: indigo;
     font-size: 20px;
     color: white;
-    padding: 5px;
+    padding: 10px;
 }
 .right-answer {
     display: none;
+    margin-left: 520px;
+    font-size: 30px;
+    color: indigo;
+    text-decoration: underline lightgray;
 }
 .wrong-answer {
     display: none;
+    margin-left: 550px;
+    font-size: 30px;
+    color: indigo;
+    text-decoration: underline lightgray;
 }
 .quiz-over {
     display:none;
+    margin-left: 340px;
+    margin-top: 50px;
+    text-align: center;
+    padding: 5px;
+    border: 5px solid thistle;
+    width: 775px;
+    height: 500px;
+    border-radius: 100%;
+    background-color: thistle;
+    box-shadow: 10px 10px 5px lightgrey;
 
 }
 .last-page-header {
@@ -78,19 +112,23 @@ body {
     box-sizing: 100px;
 }
 
+label {
+    color: indigo;
+    font-size: 30px;
+}
+
 .submit-initials {
     text-align: center;
     font-size: 30px;
     
 }
 .submit-score {
-    text-align: center;
+    display: block;
     margin-top: 30px;
-    margin-left: 550px;
-    margin-right: 550px;
-    box-sizing: 50px;
-    border-radius: 20px;
-    font-size: 30px;
+    margin-left: 300px;
+    box-sizing: 100px;
+    border-radius: 30px;
+    font-size: 48px;
     background-color: indigo;
     color: white;
 
@@ -98,27 +136,40 @@ body {
 }
 .scoreboard {
     display: none;
+    margin-left: 340px;
+    margin-top: 50px;
+    text-align: center;
+    padding: 5px;
+    border: 5px solid thistle;
+    width: 775px;
+    height: 500px;
+    border-radius: 100%;
+    background-color: thistle;
+    box-shadow: 10px 10px 5px lightgrey;
+}
+
+.your-high-scores {
+    color: indigo;
+    font-size: 35px;
 }
 
 .take-again {
-    text-align: center;
-    display: block;
-    margin-top: 30px;
-    margin-left: 300px;
-    box-sizing: 50px;
-    border-radius: 20px;
+    display: inline;
+    margin-top: 300px;
+    margin-left: 60px;
+    box-sizing: 75px;
+    border-radius: 25px;
     font-size: 30px;
     background-color: indigo;
     color: white;
 }
 
 .clear-scoreboard {
-    text-align: center;
-    display: block;
-    margin-top: 30px;
-    margin-right: 100px;
-    box-sizing: 50px;
-    border-radius: 20px;
+    display: inline;
+    margin-top: 300px;
+    margin-left: 60px;
+    box-sizing: 75px;
+    border-radius: 25px;
     font-size: 30px;
     background-color: indigo;
     color: white;
