@@ -146,10 +146,8 @@ function highScores(event) {
     event.preventDefault();
         quizOver.setAttribute("style", "display: none;");
         highScorePage.setAttribute("style", "display: block;");
-        //takeAgain.addEventListener("click");
 
-//local storage?
-        var scoreBoard = { 
+     var scoreBoard = { 
             initials: initials.value.trim(),
             score: timeLeft,
         };
@@ -161,8 +159,7 @@ function highScores(event) {
         storedScores.push(scoreBoard)
 
         localStorage.setItem("scoreBoard", JSON.stringify(storedScores));
-    
-//storedScores is a globally declared   empty array
+
     for (var i =0; i < storedScores.length; i++) {
         var li = document.createElement("li");
         li.textContent = "User: " + storedScores[i].initials + " || " + "Score: " + storedScores[i].score
@@ -176,6 +173,9 @@ function highScores(event) {
         scoreListEl.setAttribute("style", "display: none;");
     })
 
+    takeAgain.addEventListener("click", function (){
+        document.location.reload();
+    });
 }
 //The below function creates the timer element of my site. It counts down from 75s and at 0s or when the for loop is done iterating,
 //the function will stop. 
