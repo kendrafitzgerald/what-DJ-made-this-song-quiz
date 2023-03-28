@@ -164,7 +164,7 @@ function highScores(event) {
         var li = document.createElement("li");
         li.textContent = "User: " + storedScores[i].initials + " || " + "Score: " + storedScores[i].score
         li.setAttribute("data-index", i);
-        li.setAttribute("style", "font-size: 25px; color: indigo; text-align: center; list-style-type: none;")
+        li.setAttribute("style", "font-size: 25px; color: indigo; margin-right: 50px; list-style-type: none;")
         scoreListEl.appendChild(li)
 
     }

@@ -155,22 +155,20 @@ label {
 
 .take-again {
     display: inline;
-    margin-top: 300px;
-    margin-left: 60px;
-    box-sizing: 75px;
-    border-radius: 25px;
-    font-size: 30px;
+    margin-left: 50px;
+    box-sizing: 60px;
+    border-radius: 15px;
+    font-size: 25px;
     background-color: indigo;
     color: white;
 }
 
 .clear-scoreboard {
     display: inline;
-    margin-top: 300px;
-    margin-left: 60px;
-    box-sizing: 75px;
-    border-radius: 25px;
-    font-size: 30px;
+    margin-left: 50px;
+    box-sizing: 60px;
+    border-radius: 15px;
+    font-size: 25px;
     background-color: indigo;
     color: white;
 }
