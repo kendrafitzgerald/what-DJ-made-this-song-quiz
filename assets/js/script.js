@@ -149,20 +149,20 @@ function highScores(event) {
             score: timeLeft,
         };
 
-    var storedScores=JSON.parse(localStorage.getItem(finalScoreBoard))
+    var storedScores=JSON.parse(localStorage.getItem(scoreBoard))
 
-    for (var i =0; i < finalScoreBoard.length; i++) {
+    for (var i =0; i < scoreBoard.length; i++) {
         var li = document.createElement("li");
-        li = finalScoreBoard[i];
+        li = scoreBoard[i];
         li.textContent = "User: " + scoreBoard[i].initials + "Score: " + scoreBoard[i].score
         li.setAttribute("data-index", i);
         scoreListEl.appendChild(li)
 
     }
     if (storedScores !== null) {
-        finalScoreboard=storedScores;
+        scoreBoard=storedScores;
     }
-    localStorage.setItem("finalScoreboard", JSON.stringify(finalScoreBoard));
+    localStorage.setItem("scoreBoard", JSON.stringify(scoreBoard));
   
 }
 
