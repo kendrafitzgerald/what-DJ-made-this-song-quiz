@@ -20,14 +20,18 @@
  <!-- This button class is the start button with the text "Start Quiz" -->
  <button class="startbutton">Start Quiz</button>
 </div>
+<!-- This header holds the class applied to the timer -->
 <h3 class="time"></h3>
+<!-- This div holds the contents for the quiz, including the answers and question. -->
 <div class="quiz">
+    <!-- This div holds the class of question for each question in the quiz -->
 <div class="question"></div>
 
 <!-- This div will hold all of the answers I must display. -->
 <div class="carousel">
 
-    <!-- Each button element signifies a choice the user will have to answer the question correctly. -->
+    <!-- Each button element signifies a choice the user will have to answer the question correctly. The class userchoice provides styling 
+    while the option IDs are used to signify click events in my JS -->
     <button class="userchoice" id="optionOne"></button>
     <button class="userchoice" id="optionTwo"></button>
     <button class="userchoice" id="optionThree"></button>
@@ -37,26 +41,32 @@
 </div>
 
 </div>
-
+<!-- The below two headers hold the class for the right/wrong answer notification the user sees on screen after choosing their answer -->
 <h4 class="right-answer"></h4>
 <h4 class="wrong-answer"></h4>
-
+<!-- This div holds the elements for the page in which the user's score is displayed and they have the option to submit their score along 
+with their initials -->
 <div class="quiz-over">
     <h2 class="last-page-header">Quiz Over!</h2>
+    <!-- This header element is dynamically styled in JS to show the user's score -->
     <h3 class="score"></h3>
+    <!-- This form holds the input for the user's initials that they submit to reach the final page of the app -->
     <form method="POST">
         <div class="input">
             <label>Write Your Initials Here:</label>
             <input class="submit-initials" type="text" placeholder="K.F"/>
         </div>
+        <!-- This button allows the user to submit their score and initials -->
         <button class="submit-score">Submit</button>
     </form>
 </div>
 </div>
-
+<!-- The below div holds the elements for the final page of the quiz -->
 <div class ="scoreboard">
     <h2 class ="your-high-scores">Your High Scores:</h2>
+    <!-- The below unordered list holds the user's initials and scores. The list items are dynamically added in JS -->
     <ul class="score-list"></ul>
+    <!-- The below two buttons are styled in CSS with functionality added in JS -->
     <button class="take-again">Take Again</button>
     <button class="clear-scoreboard">Clear Scoreboard</button>
 </div>

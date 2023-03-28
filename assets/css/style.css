@@ -1,7 +1,10 @@
+/* This styles the entire body of the application with the font monospace and a background of light blue */
 body {
     font-family: monospace;
     background-color: lightblue;
 }
+/* The starter page is styled with the below margins, with all content on the page wrapped in a thistle colored
+circle element that has a light grey shadow effect */
 .starterpage {
     margin-left: 340px;
     margin-top: 50px;
@@ -14,17 +17,19 @@ body {
     background-color: thistle;
     box-shadow: 10px 10px 5px lightgrey;
 }
+/* The title of my quiz has a font size of 48px and is in the color indigo. Margin and text align stylings render the title
+in the middle of the page */
 .title{
     margin-top: 100px;
     text-align: center;
     color: indigo;
     font-size: 48px;
 }
-
+/* The text color for the quiz description is indigo */
 .quizdescription {
     color: indigo;
 }
-
+/* The start button is styled in a pill shape with a background color of indigo and a text color of white */
 .startbutton {
     text-align: center;
     margin-top: 30px;
@@ -34,13 +39,15 @@ body {
     background-color: indigo;
     color: white;
 }
+/* all buttons present in the quiz app will have a background color of white, text color of indigo, and a cursor
+that looks like a hand when hovered over */
 .startbutton:hover, .userchoice:hover, .submit-score:hover, 
 .take-again:hover, .clear-scoreboard:hover {
     background-color: white;
     color: indigo;
     cursor: grab;
 }
-
+/* Each quiz page will have the same box styling as the starter page */
 .quiz {
     display: none;
     text-align: center;
@@ -54,6 +61,7 @@ body {
     background-color: thistle;
     box-shadow: 10px 10px 5px lightgrey;
 }
+/* Each quiz question will be underlined in white, have a text color of indigo, and a font size of 35px */
 .question {
     text-decoration: underline white;
     margin-top: 150px;
@@ -61,6 +69,8 @@ body {
     font-size: 35px;
 
 }
+/* Each answer button will have a similar styling to the other buttons found in the quiz, but they will be slightly smaller 
+and displayed in a block so they render as a column on screen with each answer stacked atop another */
 .userchoice {
     display: block;
     margin-left: 300px;
@@ -71,6 +81,8 @@ body {
     color: white;
     padding: 10px;
 }
+/* The right answer text will be underlined in light grey, have a color of indigo, a font-size of 30px, and displayed
+under the question/answer box. It will not be displayed unless called upon in JS. */
 .right-answer {
     display: none;
     margin-left: 520px;
@@ -78,6 +90,8 @@ body {
     color: indigo;
     text-decoration: underline lightgray;
 }
+
+/* The wrong answer text has the same properties as the right anwser text, but has different margins to ensure it is properly centered in the page */
 .wrong-answer {
     display: none;
     margin-left: 550px;
@@ -85,6 +99,7 @@ body {
     color: indigo;
     text-decoration: underline lightgray;
 }
+/* The quiz over page features the same box style as the starter page and quiz pages. */
 .quiz-over {
     display:none;
     margin-left: 340px;
@@ -99,6 +114,7 @@ body {
     box-shadow: 10px 10px 5px lightgrey;
 
 }
+/* The text on the submit page is centrally aligned, font size 48px, and in the color indigo */
 .last-page-header {
     text-align: center;
     font-size: 48px;
@@ -106,22 +122,23 @@ body {
 
 }
 
-
+/* The input box for intitals has a box sizing of 100px */
 .input {
     text-align: center;
     box-sizing: 100px;
 }
-
+/* The label telling the user where to write their initials is in the color indigo with a font size of 30 */
 label {
     color: indigo;
     font-size: 30px;
 }
-
+/* When the user submits their initials, the font size will be 30px. The placeholder initials display the same styling as well */
 .submit-initials {
     text-align: center;
     font-size: 30px;
     
 }
+/* The submit score button has similar styling as the other buttons in the app, slightly tweaked to ensure it aesthetically fits the page */
 .submit-score {
     display: block;
     margin-top: 30px;
@@ -134,6 +151,7 @@ label {
 
 
 }
+/* The scoreboard is wrapped in a simialr box as the content on the starter, quiz, and submit pages */
 .scoreboard {
     display: none;
     margin-left: 340px;
@@ -147,12 +165,13 @@ label {
     background-color: thistle;
     box-shadow: 10px 10px 5px lightgrey;
 }
-
+/* The text on the scoreboard that says Your High Scores is indigo and 35px */
 .your-high-scores {
     color: indigo;
     font-size: 35px;
 }
-
+/* The take again button has similar styling to other buttons on the page with slight sizing and margin differences
+to ensure it aesthetically fits the page */
 .take-again {
     display: inline;
     margin-left: 50px;
@@ -162,7 +181,8 @@ label {
     background-color: indigo;
     color: white;
 }
-
+/* The clear scoreboard button has similar styling to other buttons on the page with slight sizing and margin differences
+to ensure it aesthetically fits the page */
 .clear-scoreboard {
     display: inline;
     margin-left: 50px;
@@ -172,6 +192,8 @@ label {
     background-color: indigo;
     color: white;
 }
+/* The timer text that runs throughout the quiz will be in the top right of the page, with a font size of 30px, and will be 
+in the color indigo */
 .time {
     color: indigo;
     font-size: 30px;
